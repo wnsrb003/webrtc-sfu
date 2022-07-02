@@ -16,11 +16,16 @@ const _EVENTS = {
 class SimpleSFUClient {
     constructor(options) {
         const defaultSettings = {
-            port: 5000,
+            port: 3000,
             configuration: {
                 iceServers: [
-                    { 'urls': 'stun:stun.stunprotocol.org:3478' },
-                    { 'urls': 'stun:stun.l.google.com:19302' },
+{'urls':'stun:stun.l.google.com:19302'},
+{'urls':'stun:stun1.l.google.com:19302'},
+{'urls':'stun:stun2.l.google.com:19302'},
+{'urls':'stun:stun3.l.google.com:19302'},
+{'urls':'stun:stun4.l.google.com:19302'},
+                    //{ 'urls': 'stun:stun.stunprotocol.org:3478' },
+                    //{ 'urls': 'stun:stun.l.google.com:19302' },
                 ]
             }
         };

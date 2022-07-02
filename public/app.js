@@ -5,11 +5,14 @@ window.onload = () => {
 let peer = null;
 const configuration = {
     iceServers: [
-        { 'urls': 'stun:stun.stunprotocol.org:3478' },
-        { 'urls': 'stun:stun.l.google.com:19302' },
+         { 'urls': 'stun:stun.stunprotocol.org:3478' },
+         { 'urls': 'stun:stun.l.google.com:19302' },
+	 { 'urls': 'stun:stun1.l.google.com:19302' },
+	 { 'urls': 'stun:stun2.l.google.com:19302' },
+	 { 'urls': 'stun:stun3.l.google.com:19302' },
     ]
 };
-const WS_PORT = 5000;
+const WS_PORT = 3000;
 const username = document.querySelector('#username');
 const connectBtn = document.querySelector('#connect');
 const remoteContainer = document.querySelector('#remote_videos');

@@ -15,10 +15,10 @@ app.use(express.static('public'));
 const WebSocketServer = WebSocket.Server;
 
 let serverOptions = {
-    listenPort: 5000,
+    listenPort: 3000,
     useHttps: true,
-    httpsCertFile: '/path/to/cert/',
-    httpsKeyFile: '/path/to/key/',
+    httpsCertFile: '/home/ubuntu/simple_sfu/ssl/cert/ssl.crt',
+    httpsKeyFile: '/home/ubuntu/simple_sfu/ssl/key/ssl.key',
 };
 
 let sslOptions = {};
@@ -56,6 +56,8 @@ function createPeer() {
         iceServers: [
             { 'urls': 'stun:stun.stunprotocol.org:3478' },
             { 'urls': 'stun:stun.l.google.com:19302' },
+	    { 'urls': 'stun:stun1.l.google.com:19302' },
+	    { 'urls': 'stun:stun2.l.google.com:19302' },
         ]
     });
 
@@ -94,7 +96,7 @@ wss.on('connection', function (ws) {
                 await peer.setRemoteDescription(desc);
                 const answer = await peer.createAnswer();
                 await peer.setLocalDescription(answer);
-
+                console.log(`connected, id : ${body.username}`)
 
 
                 const payload = {
@@ -116,7 +118,7 @@ wss.on('connection', function (ws) {
                         list.push(peerInfo);
                     }
                 });
-
+                console.log(`getPeers : ${list}`)
                 const peersPayload = {
                     type: 'peers',
                     peers: list
