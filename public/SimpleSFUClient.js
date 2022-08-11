@@ -16,7 +16,7 @@ const _EVENTS = {
 class SimpleSFUClient {
     constructor(options) {
         const defaultSettings = {
-            port: 3000,
+            port: 3005,
             configuration: {
                 iceServers: [
                     {
